@@ -24,7 +24,32 @@ nav{position:relative;z-index:5;display:flex;align-items:center;justify-content:
 .nav-links a:hover{background:rgba(255,255,255,.2);color:#fff}
 .nav-links a.active{background:#fff;color:var(--navy)}
 .nav-links a.nav-live{background:linear-gradient(90deg,#f59e0b,#ef4444);color:#fff;font-weight:800;box-shadow:0 6px 20px rgba(245,158,11,.5)}
-@media(max-width:860px){.nav-links{display:none}}
+@media(max-width:920px){.nav-links{display:none}.menu-btn{display:block}}
+.menu-btn{display:none;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:1.4rem;width:48px;height:48px;border-radius:14px;cursor:pointer;font-family:inherit;flex-shrink:0}
+.mobile-menu{display:none;position:absolute;top:calc(100% + 8px);right:16px;left:16px;background:rgba(15,23,42,.97);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:12px;z-index:50;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.mobile-menu a{display:block;color:#e2e8f0;text-decoration:none;padding:12px 18px;border-radius:14px;font-weight:700}
+.mobile-menu a:hover{background:rgba(255,255,255,.12)}
+.mobile-menu a.nav-live{background:linear-gradient(90deg,#f59e0b,#ef4444);color:#fff;margin-top:6px;text-align:center}
+.mobile-menu.open{display:block}
+@media(max-width:600px){
+  nav{padding:14px 16px}
+  .logo{font-size:1.1rem}
+  .hero{padding:24px 18px 70px}
+  .hero h1{font-size:1.85rem}
+  .hero p{font-size:1rem}
+  .container{padding:0 16px}
+  .stat-grid{margin-top:-40px;gap:12px}
+  .stat-card{padding:18px 10px}
+  .stat-card b{font-size:1.45rem}
+  .panel{padding:24px 16px}
+  .c-row{gap:8px;padding:12px 2px}
+  .c-flag{width:36px;font-size:1.5rem}
+  .c-num{min-width:0;font-size:.82rem}
+  .c-pct{min-width:38px;font-size:.75rem}
+  .you-box{padding:14px}
+  footer{padding:36px 0 20px}
+  .f-grid{justify-content:center;text-align:center}
+}
 .hero{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:40px 24px 80px;text-align:center}
 .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(251,191,36,.15);border:1px solid rgba(251,191,36,.45);color:#fde68a;padding:8px 20px;border-radius:100px;font-size:.9rem;font-weight:700}
 .hero h1{font-size:2.8rem;font-weight:900;margin:18px 0 8px}
@@ -78,6 +103,14 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:25px auto
       <a href="index.html">🏠 الرئيسية</a>
       <a href="index.html#def">التعريف</a>
       <a href="index.html#timeline">مراحل التطور</a>
+      <a href="visitors.html" class="nav-live">📊 سجل الزوار</a>
+      <a href="contact.html">✉️ اتصل بنا</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">☰</button>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">🏠 الرئيسية</a>
+      <a href="index.html#def">📖 التعريف</a>
+      <a href="index.html#timeline">🕰️ مراحل التطور</a>
       <a href="visitors.html" class="nav-live">📊 سجل الزوار</a>
       <a href="contact.html">✉️ اتصل بنا</a>
     </div>
@@ -220,6 +253,15 @@ function render(total, today, countries, live){
 
 loadStats(true);
 setInterval(()=>loadStats(false), 60000); // تحديث تلقائي كل دقيقة (قراءة فقط دون احتساب زيارة)
+</script>
+<script>
+// قائمة الجوال (همبرغر)
+const menuBtn=document.getElementById('menuBtn'),mobileMenu=document.getElementById('mobileMenu');
+if(menuBtn&&mobileMenu){
+menuBtn.addEventListener('click',e=>{e.stopPropagation();const o=mobileMenu.classList.toggle('open');menuBtn.textContent=o?'✕':'☰';});
+document.addEventListener('click',e=>{if(!mobileMenu.contains(e.target)){mobileMenu.classList.remove('open');menuBtn.textContent='☰';}});
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileMenu.classList.remove('open');menuBtn.textContent='☰';}));
+}
 </script>
 </body>
 </html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اتصل بنا | موسوعة الذكاء الاصطناعي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0f172a;--teal:#14b8a6;--teal-light:#5eead4;--violet:#8b5cf6;--gold:#fbbf24;--bg:#f8fafc;--text:#1e293b;--muted:#64748b}
+html{scroll-behavior:smooth}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);line-height:2;overflow-x:hidden}
+.hero-bg{background:radial-gradient(800px 400px at 85% 10%, rgba(139,92,246,.35), transparent 60%),radial-gradient(700px 400px at 10% 20%, rgba(20,184,166,.35), transparent 60%),linear-gradient(135deg,#0f172a 0%,#1e1b4b 40%,#134e4a 100%);color:#fff;position:relative;overflow:hidden}
+.hero-bg::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1.5px, transparent 1.5px);background-size:32px 32px;mask-image:radial-gradient(ellipse 90% 80% at 50% 20%, black 30%, transparent 75%);pointer-events:none}
+nav{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:22px 24px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:900;font-size:1.4rem;color:#fff;text-decoration:none}
+.logo-icon{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--teal),var(--violet));box-shadow:0 8px 25px rgba(20,184,166,.4);font-size:1.4rem}
+.logo small{display:block;font-size:.75rem;font-weight:400;color:#cbd5e1;line-height:1.2}
+.nav-links{display:flex;gap:6px;background:rgba(255,255,255,.1);padding:6px;border-radius:100px;border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(12px)}
+.nav-links a{color:#e2e8f0;text-decoration:none;padding:8px 18px;border-radius:100px;font-weight:600;font-size:.95rem;transition:.3s}
+.nav-links a:hover{background:rgba(255,255,255,.2);color:#fff}
+.nav-links a.active{background:#fff;color:var(--navy)}
+.nav-links a.nav-live{background:linear-gradient(90deg,#f59e0b,#ef4444);color:#fff;font-weight:800;box-shadow:0 4px 16px rgba(245,158,11,.45)}
+@media(max-width:920px){.nav-links{display:none}.menu-btn{display:block}}
+.menu-btn{display:none;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:1.4rem;width:48px;height:48px;border-radius:14px;cursor:pointer;font-family:inherit;flex-shrink:0}
+.mobile-menu{display:none;position:absolute;top:calc(100% + 8px);right:16px;left:16px;background:rgba(15,23,42,.97);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:12px;z-index:50;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.mobile-menu a{display:block;color:#e2e8f0;text-decoration:none;padding:12px 18px;border-radius:14px;font-weight:700}
+.mobile-menu a:hover{background:rgba(255,255,255,.12)}
+.mobile-menu.open{display:block}
+@media(max-width:600px){
+  nav{padding:14px 16px}
+  .logo{font-size:1.1rem}
+  .hero{padding:24px 18px 70px}
+  .hero h1{font-size:1.85rem}
+  .hero p{font-size:1rem}
+  .container{padding:0 16px}
+  .card{padding:28px 18px;margin-top:-40px}
+  .avatar{width:80px;height:80px;margin-top:-68px;font-size:2rem}
+  .card h2{font-size:1.3rem}
+  .info-row b{font-size:.82rem;word-break:break-all}
+  .panel{padding:26px 18px}
+  footer{padding:36px 0 20px}
+  .f-grid{justify-content:center;text-align:center}
+}
+.hero{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:40px 24px 80px;text-align:center}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(94,234,212,.15);border:1px solid rgba(94,234,212,.4);color:var(--teal-light);padding:8px 20px;border-radius:100px;font-size:.9rem;font-weight:700}
+.hero h1{font-size:2.8rem;font-weight:900;margin:18px 0 8px}
+.hero h1 .grad{background:linear-gradient(90deg,#5eead4,#c4b5fd,#fde68a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:#cbd5e1;max-width:640px;margin:0 auto}
+.wave{display:block;width:100%;height:60px;margin-bottom:-1px}
+.container{max-width:900px;margin:0 auto;padding:0 24px}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:26px;padding:40px;margin:-50px 0 26px;position:relative;z-index:5;box-shadow:0 14px 40px rgba(15,23,42,.1);text-align:center}
+.avatar{width:96px;height:96px;margin:-90px auto 12px;border-radius:50%;display:grid;place-items:center;font-size:2.6rem;color:#fff;background:linear-gradient(135deg,#14b8a6,#8b5cf6);border:5px solid #fff;box-shadow:0 12px 30px rgba(139,92,246,.4)}
+.card h2{font-size:1.7rem;font-weight:900}
+.card .role{color:var(--muted);margin-bottom:18px}
+.info-row{display:flex;gap:12px;align-items:center;justify-content:center;background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:14px 18px;margin:10px auto;max-width:520px;flex-wrap:wrap}
+.info-row b{font-size:1.05rem;direction:ltr}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 26px;border-radius:100px;font-weight:800;font-family:inherit;font-size:.95rem;text-decoration:none;transition:.3s;border:none;cursor:pointer}
+.btn-mail{background:linear-gradient(90deg,#14b8a6,#8b5cf6);color:#fff;box-shadow:0 10px 26px rgba(139,92,246,.4)}
+.btn-mail:hover{transform:translateY(-3px)}
+.btn-copy{background:#eef2ff;color:#4338ca;border:1px solid #c7d2fe}
+.btn-copy:hover{background:#e0e7ff}
+.btn-gh{background:#0f172a;color:#fff}
+.btn-gh:hover{background:#1e293b;transform:translateY(-3px)}
+.panel{background:#fff;border:1px solid #e2e8f0;border-radius:26px;padding:34px;margin-bottom:26px;box-shadow:0 10px 35px rgba(15,23,42,.06)}
+.panel h2{font-size:1.35rem;margin-bottom:4px}
+.panel p.sub{color:var(--muted);margin-bottom:20px;font-size:.95rem}
+.field{margin-bottom:14px;text-align:right}
+.field label{display:block;font-weight:800;margin-bottom:6px;font-size:.95rem}
+.field input,.field textarea{width:100%;font-family:inherit;font-size:1rem;padding:13px 16px;border:2px solid #e2e8f0;border-radius:14px;background:#f8fafc;transition:.25s}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--violet);background:#fff;box-shadow:0 0 0 4px rgba(139,92,246,.12)}
+.field textarea{min-height:130px;resize:vertical}
+.note{background:linear-gradient(135deg,#f0fdfa,#ede9fe);border-right:5px solid var(--teal);border-radius:16px;padding:14px 20px;color:#334155;font-size:.92rem;margin-bottom:26px}
+.center{text-align:center;margin:10px 0 60px}
+footer{background:#0f172a;color:#cbd5e1;padding:50px 0 25px;margin-top:40px}
+.f-grid{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:25px auto;max-width:1200px}
+.copy{text-align:center;font-size:.9rem;color:#94a3b8}
+.toast{position:fixed;bottom:26px;right:50%;transform:translateX(50%) translateY(80px);background:#0f172a;color:#fff;padding:12px 28px;border-radius:100px;font-weight:700;transition:.35s;z-index:99;opacity:0}
+.toast.show{transform:translateX(50%) translateY(0);opacity:1}
+</style>
+</head>
+<body>
+<div class="hero-bg">
+  <nav>
+    <a class="logo" href="index.html"><div class="logo-icon">🤖</div><div>ذكاء اصطناعي<small>من الفكرة إلى المستقبل</small></div></a>
+    <div class="nav-links">
+      <a href="index.html">🏠 الرئيسية</a>
+      <a href="visitors.html">📊 سجل الزوار</a>
+      <a href="contact.html" class="active">✉️ اتصل بنا</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">☰</button>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">🏠 الرئيسية</a>
+      <a href="visitors.html">📊 سجل الزوار</a>
+      <a href="contact.html">✉️ اتصل بنا</a>
+    </div>
+  </nav>
+  <div class="hero">
+    <span class="badge">✉️ نسعد بتواصلك معنا</span>
+    <h1>اتصل <span class="grad">بنا</span></h1>
+    <p>لديك سؤال أو اقتراح حول موسوعة الذكاء الاصطناعي؟ راسلنا مباشرة وسنرد عليك بأقرب وقت.</p>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,40 C360,90 1080,0 1440,50 L1440,70 L0,70 Z" fill="#f8fafc"/></svg>
+</div>
+
+<div class="container">
+  <div class="card">
+    <div class="avatar"><i class="fa-solid fa-user-astronaut"></i></div>
+    <h2>ABDULAZIZ ALROBAI</h2>
+    <div class="role">صاحب ومشرف موسوعة الذكاء الاصطناعي 🤖</div>
+    <div class="info-row">📧 <b>ASALROBAI@HOTMAIL.COM</b></div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px">
+      <a class="btn btn-mail" href="mailto:asalrobai@hotmail.com?subject=%D8%B1%D8%B3%D8%A7%D9%84%D8%A9%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%20%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%88%D8%B9%D8%A9">📨 إرسال بريد الآن</a>
+      <button class="btn btn-copy" onclick="copyEmail()">📋 نسخ البريد</button>
+      <a class="btn btn-gh" href="https://github.com/asalrobai" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>📝 نموذج المراسلة السريعة</h2>
+    <p class="sub">املأ الحقول وسيُفتح تطبيق البريد لديك والرسالة جاهزة للإرسال إلى بريدنا.</p>
+    <form onsubmit="return sendMsg(event)">
+      <div class="field"><label>الاسم الكريم</label><input id="fName" required placeholder="مثال: محمد عبدالله"></div>
+      <div class="field"><label>بريدك الإلكتروني</label><input id="fMail" type="email" required placeholder="name@email.com" style="direction:ltr;text-align:left"></div>
+      <div class="field"><label>رسالتك</label><textarea id="fMsg" required placeholder="اكتب رسالتك هنا..."></textarea></div>
+      <button class="btn btn-mail" type="submit" style="width:100%;justify-content:center;padding:15px">📤 إرسال عبر البريد الإلكتروني</button>
+    </form>
+  </div>
+
+  <div class="note">💡 <b>ملاحظة:</b> هذا الموقع ثابت (Static) لذلك النموذج يفتح بريدك الإلكتروني مباشرة لإتمام الإرسال — لا تُخزَّن أي بيانات على الموقع.</div>
+
+  <div class="center">
+    <a href="index.html" class="btn btn-mail">🏠 العودة للصفحة الرئيسية</a>
+  </div>
+</div>
+
+<footer>
+  <div class="f-grid">
+    <div style="display:flex;gap:12px;align-items:center"><div class="logo-icon">🤖</div><div><b style="color:#fff">موسوعة الذكاء الاصطناعي</b><br><small>صُنع بشغف لتبسيط المعرفة 💜</small></div></div>
+    <div>📚 التعريف • 📊 <a href="visitors.html" style="color:#fde68a">سجل الزوار</a> • ✉️ <a href="contact.html" style="color:#fde68a">اتصل بنا</a></div>
+  </div>
+  <hr>
+  <div class="copy">© 2026 موسوعة الذكاء الاصطناعي — جميع الحقوق محفوظة | ABDULAZIZ ALROBAI</div>
+</footer>
+
+<div class="toast" id="toast">تم نسخ البريد الإلكتروني ✅</div>
+<script>
+const EMAIL = 'ASALROBAI@HOTMAIL.COM';
+function copyEmail(){
+  const done = ()=>{ const t=document.getElementById('toast'); t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2200); };
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(EMAIL).then(done).catch(()=>fallback()); } else { fallback(); }
+  function fallback(){ const i=document.createElement('input'); i.value=EMAIL; document.body.appendChild(i); i.select(); try{document.execCommand('copy'); done();}catch(e){} document.body.removeChild(i); }
+}
+function sendMsg(e){
+  e.preventDefault();
+  const n=document.getElementById('fName').value.trim();
+  const m=document.getElementById('fMail').value.trim();
+  const b=document.getElementById('fMsg').value.trim();
+  const subject=encodeURIComponent('رسالة من موقع الموسوعة — '+n);
+  const body=encodeURIComponent('الاسم: '+n+'\nالبريد: '+m+'\n\nالرسالة:\n'+b);
+  window.location.href='mailto:asalrobai@hotmail.com?subject='+subject+'&body='+body;
+  return false;
+}
+</script>
+<script>
+// قائمة الجوال (همبرغر)
+const menuBtn=document.getElementById('menuBtn'),mobileMenu=document.getElementById('mobileMenu');
+if(menuBtn&&mobileMenu){
+menuBtn.addEventListener('click',e=>{e.stopPropagation();const o=mobileMenu.classList.toggle('open');menuBtn.textContent=o?'✕':'☰';});
+document.addEventListener('click',e=>{if(!mobileMenu.contains(e.target)){mobileMenu.classList.remove('open');menuBtn.textContent='☰';}});
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileMenu.classList.remove('open');menuBtn.textContent='☰';}));
+}
+</script>
+</body>
+</html>

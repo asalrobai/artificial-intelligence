@@ -24,7 +24,27 @@ nav{position:relative;z-index:5;display:flex;align-items:center;justify-content:
 .nav-links a:hover{background:rgba(255,255,255,.2);color:#fff}
 .nav-links a.active{background:#fff;color:var(--navy)}
 .nav-links a.nav-live{background:linear-gradient(90deg,#f59e0b,#ef4444);color:#fff;font-weight:800;box-shadow:0 4px 16px rgba(245,158,11,.45)}
-@media(max-width:900px){.nav-links{display:none}}
+@media(max-width:920px){.nav-links{display:none}.menu-btn{display:block}}
+.menu-btn{display:none;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:1.4rem;width:48px;height:48px;border-radius:14px;cursor:pointer;font-family:inherit;flex-shrink:0}
+.mobile-menu{display:none;position:absolute;top:calc(100% + 8px);right:16px;left:16px;background:rgba(15,23,42,.97);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:12px;z-index:50;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.mobile-menu a{display:block;color:#e2e8f0;text-decoration:none;padding:12px 18px;border-radius:14px;font-weight:700}
+.mobile-menu a:hover{background:rgba(255,255,255,.12)}
+.mobile-menu.open{display:block}
+@media(max-width:600px){
+  nav{padding:14px 16px}
+  .logo{font-size:1.1rem}
+  .hero{padding:24px 18px 70px}
+  .hero h1{font-size:1.85rem}
+  .hero p{font-size:1rem}
+  .container{padding:0 16px}
+  .card{padding:28px 18px;margin-top:-40px}
+  .avatar{width:80px;height:80px;margin-top:-68px;font-size:2rem}
+  .card h2{font-size:1.3rem}
+  .info-row b{font-size:.82rem;word-break:break-all}
+  .panel{padding:26px 18px}
+  footer{padding:36px 0 20px}
+  .f-grid{justify-content:center;text-align:center}
+}
 .hero{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:40px 24px 80px;text-align:center}
 .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(94,234,212,.15);border:1px solid rgba(94,234,212,.4);color:var(--teal-light);padding:8px 20px;border-radius:100px;font-size:.9rem;font-weight:700}
 .hero h1{font-size:2.8rem;font-weight:900;margin:18px 0 8px}
@@ -71,6 +91,12 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:25px auto
       <a href="index.html">🏠 الرئيسية</a>
       <a href="visitors.html">📊 سجل الزوار</a>
       <a href="contact.html" class="active">✉️ اتصل بنا</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">☰</button>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">🏠 الرئيسية</a>
+      <a href="visitors.html">📊 سجل الزوار</a>
+      <a href="contact.html">✉️ اتصل بنا</a>
     </div>
   </nav>
   <div class="hero">
@@ -138,6 +164,15 @@ function sendMsg(e){
   const body=encodeURIComponent('الاسم: '+n+'\nالبريد: '+m+'\n\nالرسالة:\n'+b);
   window.location.href='mailto:asalrobai@hotmail.com?subject='+subject+'&body='+body;
   return false;
+}
+</script>
+<script>
+// قائمة الجوال (همبرغر)
+const menuBtn=document.getElementById('menuBtn'),mobileMenu=document.getElementById('mobileMenu');
+if(menuBtn&&mobileMenu){
+menuBtn.addEventListener('click',e=>{e.stopPropagation();const o=mobileMenu.classList.toggle('open');menuBtn.textContent=o?'✕':'☰';});
+document.addEventListener('click',e=>{if(!mobileMenu.contains(e.target)){mobileMenu.classList.remove('open');menuBtn.textContent='☰';}});
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileMenu.classList.remove('open');menuBtn.textContent='☰';}));
 }
 </script>
 </body>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الذكاء الاصطناعي | رحلة من الفكرة إلى المستقبل</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0f172a;
+  --navy2:#1e293b;
+  --teal:#14b8a6;
+  --teal-light:#5eead4;
+  --violet:#8b5cf6;
+  --violet-light:#c4b5fd;
+  --gold:#fbbf24;
+  --bg:#f8fafc;
+  --card:#ffffff;
+  --text:#1e293b;
+  --muted:#64748b;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Cairo','Tajawal',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:2;
+  overflow-x:hidden;
+}
+/* خلفية علوية جميلة */
+.hero-bg{
+  background:
+    radial-gradient(800px 400px at 85% 10%, rgba(139,92,246,.35), transparent 60%),
+    radial-gradient(700px 400px at 10% 20%, rgba(20,184,166,.35), transparent 60%),
+    radial-gradient(600px 400px at 50% 100%, rgba(251,191,36,.18), transparent 60%),
+    linear-gradient(135deg, #0f172a 0%, #1e1b4b 40%, #134e4a 100%);
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+.hero-bg::before{
+  content:'';
+  position:absolute;inset:0;
+  background-image: radial-gradient(rgba(255,255,255,.14) 1.5px, transparent 1.5px);
+  background-size:32px 32px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 20%, black 30%, transparent 75%);
+  pointer-events:none;
+}
+.blob{
+  position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;
+  animation: float 9s ease-in-out infinite alternate;
+}
+.blob1{width:420px;height:420px;background:#8b5cf6;top:-120px;left:-100px}
+.blob2{width:380px;height:380px;background:#14b8a6;bottom:-80px;right:-80px;animation-delay:1.5s}
+.blob3{width:220px;height:220px;background:#f59e0b;top:35%;left:45%;opacity:.25;animation-delay:.7s}
+@keyframes float{from{transform:translateY(-20px) scale(1)}to{transform:translateY(25px) scale(1.08)}}
+
+/* نافبار */
+nav{
+  position:relative;z-index:5;
+  display:flex;align-items:center;justify-content:space-between;
+  max-width:1200px;margin:0 auto;padding:22px 24px;
+}
+.logo{display:flex;align-items:center;gap:12px;font-weight:900;font-size:1.4rem}
+.logo-icon{
+  width:48px;height:48px;border-radius:16px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--teal),var(--violet));
+  box-shadow:0 8px 25px rgba(20,184,166,.4);font-size:1.4rem;
+}
+.logo small{display:block;font-size:.75rem;font-weight:400;color:#cbd5e1;line-height:1.2}
+.nav-links{display:flex;gap:6px;background:rgba(255,255,255,.1);padding:6px;border-radius:100px;border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(12px)}
+.nav-links a{color:#e2e8f0;text-decoration:none;padding:8px 18px;border-radius:100px;font-weight:600;font-size:.95rem;transition:.3s}
+.nav-links a:hover,.nav-links a.active{background:#fff;color:var(--navy)}
+@media(max-width:920px){.nav-links{display:none}.menu-btn{display:block}}
+.menu-btn{display:none;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:1.4rem;width:48px;height:48px;border-radius:14px;cursor:pointer;font-family:inherit;flex-shrink:0}
+.mobile-menu{display:none;position:absolute;top:calc(100% + 8px);right:16px;left:16px;background:rgba(15,23,42,.97);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:12px;z-index:50;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.mobile-menu a{display:block;color:#e2e8f0;text-decoration:none;padding:12px 18px;border-radius:14px;font-weight:700}
+.mobile-menu a:hover{background:rgba(255,255,255,.12)}
+.mobile-menu a.nav-live{background:linear-gradient(90deg,#f59e0b,#ef4444);color:#fff;margin-top:6px;text-align:center}
+.mobile-menu.open{display:block}
+@media(max-width:600px){
+  nav{padding:14px 16px}
+  .logo{font-size:1.1rem}
+  .hero{padding:24px 18px 70px;gap:28px}
+  .hero h1{font-size:1.85rem}
+  .hero p{font-size:1rem}
+  .hero-btns .btn{flex:1 1 100%;justify-content:center}
+  .stats{gap:14px}
+  .container{padding:0 16px}
+  section.block{padding:44px 0}
+  .sec-head{margin-bottom:34px}
+  .sec-head h2{font-size:1.65rem}
+  .def-card{padding:26px 20px}
+  .hero-img{height:320px}
+  .float-chip{font-size:.75rem;padding:8px 14px}
+  .chip1{right:-4px}.chip2{left:-4px}
+  .visitors-banner{padding:34px 20px;border-radius:24px}
+  .visitors-banner h2{font-size:1.3rem}
+  .apps{border-radius:24px}
+  .check{padding:14px}
+  footer{padding:36px 0 20px}
+  .f-grid{justify-content:center;text-align:center}
+}
+
+/* هيرو */
+.hero{
+  position:relative;z-index:2;
+  max-width:1200px;margin:0 auto;padding:40px 24px 90px;
+  display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;
+}
+@media(max-width:900px){.hero{grid-template-columns:1fr;text-align:center}}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(94,234,212,.15);border:1px solid rgba(94,234,212,.4);
+  color:var(--teal-light);padding:8px 18px;border-radius:100px;font-size:.9rem;font-weight:700;
+}
+.hero h1{font-size:3.4rem;font-weight:900;line-height:1.35;margin:20px 0 10px}
+@media(max-width:600px){.hero h1{font-size:2.3rem}}
+.hero h1 .grad{
+  background:linear-gradient(90deg,#5eead4,#c4b5fd,#fde68a);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p{color:#cbd5e1;font-size:1.15rem;max-width:560px}
+.hero-btns{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
+@media(max-width:900px){.hero-btns{justify-content:center}}
+.btn{
+  padding:14px 32px;border-radius:100px;font-weight:800;font-family:inherit;font-size:1rem;
+  cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:.3s;
+}
+.btn-main{background:linear-gradient(90deg,#14b8a6,#8b5cf6);color:#fff;box-shadow:0 12px 30px rgba(139,92,246,.4)}
+.btn-main:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(139,92,246,.5)}
+.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(8px)}
+.btn-ghost:hover{background:rgba(255,255,255,.22)}
+.btn-visitors{background:linear-gradient(90deg,#f59e0b,#ef4444,#ec4899);color:#fff;box-shadow:0 12px 30px rgba(239,68,68,.45);position:relative;animation:glow 2s ease-in-out infinite alternate}
+@keyframes glow{from{box-shadow:0 8px 22px rgba(245,158,11,.4)}to{box-shadow:0 12px 36px rgba(236,72,153,.6)}}
+.btn-visitors:hover{transform:translateY(-3px) scale(1.03)}
+.nav-links a.nav-live{background:linear-gradient(90deg,#f59e0b,#ef4444);color:#fff;font-weight:800;box-shadow:0 4px 16px rgba(245,158,11,.45)}
+.visitors-banner{background:linear-gradient(135deg,#f59e0b 0%,#ef4444 50%,#8b5cf6 100%);border-radius:32px;padding:50px 40px;color:#fff;text-align:center;position:relative;overflow:hidden;margin:10px 0 10px;box-shadow:0 20px 60px rgba(239,68,68,.3)}
+.visitors-banner::before{content:'🌍';position:absolute;font-size:12rem;opacity:.12;left:-20px;top:-30px;transform:rotate(-12deg)}
+.visitors-banner::after{content:'📊';position:absolute;font-size:9rem;opacity:.12;right:10px;bottom:-25px;transform:rotate(10deg)}
+.visitors-banner h2{font-size:2rem;font-weight:900;margin-bottom:8px;position:relative;z-index:2}
+.visitors-banner p{color:rgba(255,255,255,.9);margin-bottom:24px;position:relative;z-index:2}
+.btn-white{background:#fff;color:#b91c1c;box-shadow:0 12px 30px rgba(0,0,0,.25);position:relative;z-index:2}
+.btn-white:hover{transform:translateY(-3px) scale(1.03)}
+.stats{display:flex;gap:28px;margin-top:36px;flex-wrap:wrap}
+@media(max-width:900px){.stats{justify-content:center}}
+.stat b{font-size:1.7rem;display:block;line-height:1.2}
+.stat span{color:#94a3b8;font-size:.9rem}
+.hero-img-wrap{position:relative}
+.hero-img{
+  width:100%;height:480px;object-fit:cover;border-radius:32px;
+  border:1px solid rgba(255,255,255,.25);
+  box-shadow:0 30px 80px rgba(0,0,0,.5);
+}
+.hero-card{
+  position:absolute;bottom:-25px;right:20px;left:20px;
+  background:rgba(255,255,255,.96);color:var(--text);
+  border-radius:22px;padding:18px 22px;display:flex;gap:16px;align-items:center;
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+.hero-card .ic{width:56px;height:56px;flex-shrink:0;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,#14b8a6,#0d9488);color:#fff;font-size:1.5rem}
+.hero-card b{display:block;line-height:1.4}
+.hero-card small{color:var(--muted)}
+.float-chip{
+  position:absolute;background:rgba(255,255,255,.95);color:var(--navy);
+  border-radius:100px;padding:10px 18px;font-weight:800;font-size:.9rem;
+  box-shadow:0 12px 30px rgba(0,0,0,.3);display:flex;gap:8px;align-items:center;
+  animation: chip 3s ease-in-out infinite alternate;
+}
+.chip1{top:22px;right:-10px}
+.chip2{top:45%;left:-18px;animation-delay:1s}
+@keyframes chip{from{transform:translateY(-8px)}to{transform:translateY(8px)}}
+
+/* موجة فاصلة */
+.wave{display:block;width:100%;height:70px;margin-bottom:-1px}
+
+/* أقسام */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+section.block{padding:70px 0}
+.sec-head{text-align:center;max-width:720px;margin:0 auto 50px}
+.sec-tag{display:inline-block;background:linear-gradient(90deg,rgba(20,184,166,.15),rgba(139,92,246,.15));border:1px solid rgba(139,92,246,.25);color:#6d28d9;padding:6px 20px;border-radius:100px;font-weight:800;font-size:.9rem;margin-bottom:14px}
+.sec-head h2{font-size:2.4rem;font-weight:900;line-height:1.5}
+.sec-head h2 span{background:linear-gradient(90deg,#0d9488,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sec-head p{color:var(--muted);font-size:1.1rem}
+
+/* تعريف */
+.def-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}
+@media(max-width:900px){.def-grid{grid-template-columns:1fr}}
+.def-img{border-radius:28px;overflow:hidden;position:relative;min-height:420px;box-shadow:0 20px 60px rgba(15,23,42,.18)}
+.def-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.def-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top, rgba(15,23,42,.75) 0%, transparent 55%)}
+.def-img-cap{position:absolute;bottom:0;right:0;left:0;padding:28px;z-index:2;color:#fff}
+.def-img-cap b{font-size:1.3rem}
+.def-card{background:var(--card);border-radius:28px;padding:40px;border:1px solid #e2e8f0;box-shadow:0 10px 40px rgba(15,23,42,.06)}
+.def-card h3{font-size:1.5rem;margin-bottom:10px}
+.def-card p{color:#475569}
+.quote{background:linear-gradient(135deg,#f0fdfa,#ede9fe);border-right:5px solid var(--teal);border-radius:16px;padding:18px 22px;margin:20px 0;color:#334155}
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+@media(max-width:500px){.feats{grid-template-columns:1fr}}
+.feat{background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:16px;display:flex;gap:12px;align-items:flex-start}
+.feat i{width:42px;height:42px;flex-shrink:0;border-radius:12px;display:grid;place-items:center;color:#fff;font-size:1.1rem}
+.feat b{display:block;line-height:1.5;font-size:.98rem}
+.feat small{color:var(--muted);line-height:1.7}
+
+/* نشأة */
+.origin{background:linear-gradient(180deg,#fff 0%, #f1f5f9 100%);border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.origin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:900px){.origin-grid{grid-template-columns:1fr}}
+.o-card{background:#fff;border-radius:24px;overflow:hidden;border:1px solid #e2e8f0;transition:.35s}
+.o-card:hover{transform:translateY(-8px);box-shadow:0 25px 50px rgba(15,23,42,.12)}
+.o-card img{width:100%;height:210px;object-fit:cover}
+.o-body{padding:26px}
+.o-year{display:inline-block;font-weight:900;font-size:.85rem;padding:4px 16px;border-radius:100px;margin-bottom:12px}
+.y1{background:#ccfbf1;color:#0f766e}.y2{background:#ede9fe;color:#6d28d9}.y3{background:#fef3c7;color:#b45309}
+.o-body h3{font-size:1.25rem;margin-bottom:8px}
+.o-body p{color:var(--muted);font-size:1rem;line-height:1.9}
+
+/* خط زمني */
+.timeline{position:relative;max-width:860px;margin:0 auto;padding:10px 0}
+.timeline::before{content:'';position:absolute;top:0;bottom:0;right:50%;width:4px;transform:translateX(50%);background:linear-gradient(180deg,#14b8a6,#8b5cf6,#f59e0b);border-radius:10px}
+@media(max-width:700px){.timeline::before{right:18px;transform:none}}
+.t-item{position:relative;width:50%;padding:0 40px 36px 0}
+.t-item:nth-child(even){margin-right:50%;padding:0 40px 36px 0}
+.t-item:nth-child(odd){padding:0 0 36px 40px;text-align:left}
+@media(max-width:700px){
+  .t-item,.t-item:nth-child(even),.t-item:nth-child(odd){width:100%;margin:0;padding:0 55px 30px 0;text-align:right}
+}
+.t-dot{
+  position:absolute;top:4px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:1.1rem;
+  border:4px solid #fff;box-shadow:0 6px 20px rgba(0,0,0,.2);z-index:2;
+}
+.t-item:nth-child(even) .t-dot{right:-22px}
+.t-item:nth-child(odd) .t-dot{left:-22px}
+@media(max-width:700px){.t-item .t-dot,.t-item:nth-child(even) .t-dot,.t-item:nth-child(odd) .t-dot{right:-4px;left:auto}}
+.t-box{background:#fff;border:1px solid #e2e8f0;border-radius:20px;padding:22px 24px;box-shadow:0 10px 30px rgba(15,23,42,.07)}
+.t-box .date{font-weight:900;font-size:.9rem}
+.t-box h3{margin:6px 0;font-size:1.2rem}
+.t-box p{color:var(--muted);font-size:.98rem;line-height:1.9}
+
+/* أنواع */
+.types{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:900px){.types{grid-template-columns:1fr}}
+.type-card{border-radius:26px;padding:36px 30px;color:#fff;position:relative;overflow:hidden;min-height:320px;display:flex;flex-direction:column;justify-content:flex-end}
+.type-card::before{content:'';position:absolute;inset:0;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><circle cx="20" cy="20" r="2" fill="white" opacity="0.25"/></svg>')}
+.type-card h3,.type-card p,.type-card .t-icon{position:relative;z-index:2}
+.t1{background:linear-gradient(150deg,#0f766e,#14b8a6 60%,#5eead4)}
+.t2{background:linear-gradient(150deg,#5b21b6,#8b5cf6 60%,#c4b5fd)}
+.t3{background:linear-gradient(150deg,#92400e,#f59e0b 60%,#fcd34d)}
+.t-icon{width:62px;height:62px;border-radius:18px;background:rgba(255,255,255,.25);backdrop-filter:blur(6px);display:grid;place-items:center;font-size:1.6rem;margin-bottom:auto;border:1px solid rgba(255,255,255,.4)}
+.type-card h3{font-size:1.4rem;margin:18px 0 6px}
+.type-card p{color:rgba(255,255,255,.9);font-size:.98rem}
+
+/* تطبيقات */
+.apps{background:linear-gradient(135deg,#0f172a,#1e1b4b 55%,#0f766e);border-radius:36px;padding:60px 50px;color:#fff;position:relative;overflow:hidden}
+@media(max-width:700px){.apps{padding:40px 24px}}
+.apps::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.12) 1.5px, transparent 1.5px);background-size:28px 28px;mask-image:radial-gradient(ellipse at center, black, transparent 80%)}
+.apps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px;position:relative;z-index:2}
+@media(max-width:900px){.apps-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.apps-grid{grid-template-columns:1fr}}
+.app{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:26px 22px;text-align:center;backdrop-filter:blur(10px);transition:.3s}
+.app:hover{background:rgba(255,255,255,.18);transform:translateY(-6px)}
+.app i{font-size:2rem;margin-bottom:12px;display:block}
+.app b{display:block;font-size:1.05rem}
+.app small{color:#cbd5e1}
+
+/* مستقبل + صور */
+.future-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
+@media(max-width:900px){.future-grid{grid-template-columns:1fr}}
+.future-grid img{width:100%;height:420px;object-fit:cover;border-radius:28px;box-shadow:0 20px 60px rgba(139,92,246,.25)}
+.check{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:16px 18px;margin-bottom:14px}
+.check i{color:#fff;background:linear-gradient(135deg,#14b8a6,#8b5cf6);width:36px;height:36px;flex-shrink:0;border-radius:50%;display:grid;place-items:center}
+
+/* فوتر */
+footer{background:#0f172a;color:#cbd5e1;padding:50px 0 25px;margin-top:70px}
+.f-grid{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:25px auto;max-width:1200px}
+.copy{text-align:center;font-size:.9rem;color:#94a3b8}
+.top-btn{position:fixed;bottom:24px;left:24px;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#14b8a6,#8b5cf6);color:#fff;border:none;font-size:1.2rem;cursor:pointer;box-shadow:0 10px 30px rgba(139,92,246,.5);display:none;z-index:99}
+</style>
+</head>
+<body>
+
+<div class="hero-bg">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+
+  <nav>
+    <div class="logo">
+      <div class="logo-icon">🤖</div>
+      <div>ذكاء اصطناعي<small>من الفكرة إلى المستقبل</small></div>
+    </div>
+    <div class="nav-links">
+      <a href="#def" class="active">التعريف</a>
+      <a href="#origin">النشأة</a>
+      <a href="#timeline">مراحل التطور</a>
+      <a href="#types">الأنواع</a>
+      <a href="#apps">التطبيقات</a>
+      <a href="visitors.html" class="nav-live">📊 الزوار</a>
+      <a href="contact.html">✉️ اتصل بنا</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">☰</button>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#def">📖 التعريف</a>
+      <a href="#origin">🌱 النشأة</a>
+      <a href="#timeline">🕰️ مراحل التطور</a>
+      <a href="#types">🧬 الأنواع</a>
+      <a href="#apps">🌍 التطبيقات</a>
+      <a href="visitors.html" class="nav-live">📊 سجل الزوار</a>
+      <a href="contact.html">✉️ اتصل بنا</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div>
+      <span class="badge">✨ موسوعة مبسطة وشاملة لعام 2026</span>
+      <h1>الذكاء الاصطناعي<br><span class="grad">عقل المستقبل الذي بدأ بحلم</span></h1>
+      <p>رحلة ممتعة من أول سؤال فلسفي: "هل تستطيع الآلات أن تفكر؟" إلى عالم يصنع فيه الذكاء الاصطناعي الصور والفيديو والدواء ويقود السيارات. اكتشف القصة كاملة هنا.</p>
+      <div class="hero-btns">
+        <a href="#def" class="btn btn-main">🚀 ابدأ الرحلة</a>
+        <a href="#timeline" class="btn btn-ghost">🕰️ مراحل التطور</a>
+        <a href="visitors.html" class="btn btn-visitors">📊 سجل الزوار — مباشر 🔥</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>1956 🧠</b><span>سنة الميلاد الرسمية</span></div>
+        <div class="stat"><b>+70 سنة ⏳</b><span>من البحث والتطور</span></div>
+        <div class="stat"><b>∞ إمكانيات 🌍</b><span>تطبيقات بلا حدود</span></div>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <div class="float-chip chip1">🧠 تعلم عميق</div>
+      <div class="float-chip chip2">⚡ ذكاء توليدي</div>
+      <img class="hero-img" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=900&auto=format&fit=crop" alt="الذكاء الاصطناعي">
+      <div class="hero-card">
+        <div class="ic"><i class="fa-solid fa-brain"></i></div>
+        <div><b>هل تعلم؟ مصطلح "الذكاء الاصطناعي" صاغه جون مكارثي سنة 1956</b><small>في مؤتمر دارتموث الشهير بالولايات المتحدة الأمريكية</small></div>
+      </div>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,40 C360,90 1080,0 1440,50 L1440,70 L0,70 Z" fill="#f8fafc"/></svg>
+</div>
+
+<!-- التعريف -->
+<div class="container">
+<section id="def" class="block">
+  <div class="sec-head">
+    <span class="sec-tag">📖 أولاً : ما هو الذكاء الاصطناعي؟</span>
+    <h2>تعريف <span>الذكاء الاصطناعي</span> ببساطة</h2>
+    <p>فرع من علوم الحاسوب يهدف لجعل الآلات تفكر وتتعلم وتتصرف مثل البشر — بل وأحياناً أفضل منهم</p>
+  </div>
+  <div class="def-grid">
+    <div class="def-img">
+      <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=900&auto=format&fit=crop" alt="روبوت يمثل الذكاء الاصطناعي">
+      <div class="def-img-cap"><b>🤖 آلة تتعلم .. تفكر .. تقرر</b><br><small>التعلم الآلي • الشبكات العصبية • معالجة اللغة • الرؤية الحاسوبية</small></div>
+    </div>
+    <div class="def-card">
+      <h3>💡 التعريف العلمي المبسط</h3>
+      <p>الذكاء الاصطناعي (Artificial Intelligence - AI) هو قدرة الأنظمة الحاسوبية على أداء مهام تتطلب عادة ذكاءً بشرياً، مثل <b>الفهم، والاستدلال، والتعلم من التجارب، واتخاذ القرارات، وفهم اللغة، وتمييز الصور والأصوات</b>.</p>
+      <div class="quote">❝ عرّفه العالم آلان تورينج بسؤال بسيط سنة 1950 : <b>"هل تستطيع الآلات أن تفكر؟"</b> ومن هذا السؤال بدأت أعظم ثورة تقنية في التاريخ. ❞</div>
+      <div class="feats">
+        <div class="feat"><i class="fa-solid fa-book-open" style="background:linear-gradient(135deg,#14b8a6,#0d9488)"></i><div><b>التعلم</b><small>يتعلم من البيانات ويتحسن مع الوقت</small></div></div>
+        <div class="feat"><i class="fa-solid fa-eye" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)"></i><div><b>الإدراك</b><small>يرى الصور ويسمع الصوت ويفهم النص</small></div></div>
+        <div class="feat"><i class="fa-solid fa-lightbulb" style="background:linear-gradient(135deg,#f59e0b,#d97706)"></i><div><b>الاستدلال</b><small>يحلل ويستنتج ويحل المشكلات</small></div></div>
+        <div class="feat"><i class="fa-solid fa-bolt" style="background:linear-gradient(135deg,#ef4444,#b91c1c)"></i><div><b>اتخاذ القرار</b><small>يختار أفضل حل في أجزاء من الثانية</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- النشأة -->
+<div class="origin">
+<div class="container">
+<section id="origin" class="block">
+  <div class="sec-head">
+    <span class="sec-tag">🌱 ثانياً : النشأة والبدايات</span>
+    <h2>كيف <span>وُلد</span> الذكاء الاصطناعي؟</h2>
+    <p>لم يظهر فجأة .. بل هو ثمرة أحلام فلاسفة ورياضيين عبر عقود طويلة</p>
+  </div>
+  <div class="origin-grid">
+    <div class="o-card">
+      <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?q=80&w=800&auto=format&fit=crop" alt="بدايات الروبوتات">
+      <div class="o-body"><span class="o-year y1">1950 • الشرارة الأولى 🔥</span><h3>آلان تورينج يسأل السؤال الكبير</h3><p>نشر العالم البريطاني آلان تورينج ورقته الشهيرة واقترح "اختبار تورينج" : إذا لم تستطع التفريق بين الإنسان والآلة في المحادثة، فالآلة ذكية. كانت هذه اللحظة هي البذرة الحقيقية.</p></div>
+    </div>
+    <div class="o-card">
+      <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800&auto=format&fit=crop" alt="مؤتمر دارتموث">
+      <div class="o-body"><span class="o-year y2">1956 • الميلاد الرسمي 🎓</span><h3>مؤتمر دارتموث .. الاسم والولادة</h3><p>اجتمع 10 علماء في كلية دارتموث بأمريكا بقيادة جون مكارثي ومارفن مينسكي، وأطلقوا مصطلح "الذكاء الاصطناعي" لأول مرة، وتوقعوا بناء آلة ذكية كالإنسان خلال سنوات قليلة .. لكن الطريق كان أطول!</p></div>
+    </div>
+    <div class="o-card">
+      <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop" alt="حواسيب قديمة">
+      <div class="o-body"><span class="o-year y3">1960 - 1970 • الحماس ثم الشتاء ❄️</span><h3>أحلام كبيرة .. وإحباط أكبر</h3><p>ظهرت برامج تحل مسائل رياضية وتلعب الشطرنج، لكن الحواسيب كانت ضعيفة جداً. توقف التمويل ودخل المجال ما يُسمى "شتاء الذكاء الاصطناعي" الأول، حيث تجمدت الأبحاث لسنوات.</p></div>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+
+<!-- الخط الزمني -->
+<div class="container">
+<section id="timeline" class="block">
+  <div class="sec-head">
+    <span class="sec-tag">🕰️ ثالثاً : مراحل التطور عبر الزمن</span>
+    <h2>رحلة <span>70 عاماً</span> من التطور المذهل</h2>
+    <p>من غرف الحواسيب الضخمة إلى هاتفك الذكي .. تابع القصة لحظة بلحظة</p>
+  </div>
+  <div class="timeline">
+    <div class="t-item"><div class="t-dot" style="background:#0d9488">🧩</div><div class="t-box"><span class="date" style="color:#0d9488">1980 - 1987 | عصر الأنظمة الخبيرة</span><h3>💼 الآلة تصبح مستشارة</h3><p>ظهرت "الأنظمة الخبيرة" التي تقلد خبراء الطب والهندسة، وعادت الاستثمارات بقوة. أشهرها نظام XCON الذي وفر ملايين الدولارات لشركة DEC.</p></div></div>
+    <div class="t-item"><div class="t-dot" style="background:#7c3aed">♟️</div><div class="t-box"><span class="date" style="color:#7c3aed">1997 | الآلة تهزم الإنسان</span><h3>🏆 ديب بلو يهزم بطل العالم</h3><p>حاسوب IBM المسمى "ديب بلو" هزم بطل العالم في الشطرنج غاري كاسباروف. صدم العالم وأثبت أن الآلة قادرة على التفوق في مهام معقدة.</p></div></div>
+    <div class="t-item"><div class="t-dot" style="background:#0891b2">🌐</div><div class="t-box"><span class="date" style="color:#0891b2">2000 - 2010 | ثورة البيانات والتعلم</span><h3>📊 البيانات الضخمة تُعلّم الآلة</h3><p>مع الإنترنت والهواتف الذكية انفجرت كميات البيانات، وظهر "التعلم الآلي" بقوة. جوجل وفيسبوك استخدمتا الذكاء للبحث والترجمة والتعرف على الوجوه.</p></div></div>
+    <div class="t-item"><div class="t-dot" style="background:#db2777">🧠</div><div class="t-box"><span class="date" style="color:#db2777">2012 - 2019 | عصر التعلم العميق</span><h3>👁️ الآلة ترى وتسمع وتتكلم</h3><p>الشبكات العصبية العميقة حققت قفزة هائلة: تفوقت على البشر في تمييز الصور، وهزم برنامج AlphaGo بطل العالم في لعبة "غو"، وظهرت المساعدات الصوتية سيري وأليكسا.</p></div></div>
+    <div class="t-item"><div class="t-dot" style="background:#d97706">✨</div><div class="t-box"><span class="date" style="color:#d97706">2020 - 2026 | عصر الذكاء التوليدي</span><h3>🎨 الآلة تبدع مثل الفنانين</h3><p>انفجار ChatGPT و DALL-E و Midjourney : ذكاء يكتب المقالات ويرسم اللوحات ويؤلف الموسيقى ويبرمج المواقع. اليوم أكثر من 300 مليون شخص يستخدم أدوات الذكاء التوليدي أسبوعياً.</p></div></div>
+  </div>
+</section>
+
+<!-- الأنواع -->
+<section id="types" class="block" style="padding-top:20px">
+  <div class="sec-head">
+    <span class="sec-tag">🧬 رابعاً : أنواع الذكاء الاصطناعي</span>
+    <h2>ثلاثة <span>مستويات</span> من الذكاء</h2>
+  </div>
+  <div class="types">
+    <div class="type-card t1"><div class="t-icon">🔧</div><h3>1. الذكاء الضيق (ANI)</h3><p>موجود اليوم في كل مكان: مساعدات صوتية، ترجمة جوجل، توصيات يوتيوب. ذكي جداً في مهمة واحدة فقط.</p></div>
+    <div class="type-card t2"><div class="t-icon">🧠</div><h3>2. الذكاء العام (AGI)</h3><p>الهدف المستقبلي: آلة تفكر وتتعلم مثل الإنسان تماماً في أي مجال. لم نصل إليه بعد، لكن السباق محتدم.</p></div>
+    <div class="type-card t3"><div class="t-icon">🚀</div><h3>3. الذكاء الفائق (ASI)</h3><p>سيناريو المستقبل البعيد: ذكاء يتفوق على أذكى البشر في كل شيء. يثير الحماس والخوف معاً ويدعو للتفكير الأخلاقي.</p></div>
+  </div>
+</section>
+
+<!-- التطبيقات -->
+<section id="apps" class="block" style="padding-top:20px">
+  <div class="apps">
+    <div style="position:relative;z-index:2;text-align:center">
+      <span class="sec-tag" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);color:#fde68a">🌍 خامساً : أين نراه في حياتنا؟</span>
+      <h2 style="font-size:2.2rem;font-weight:900">الذكاء الاصطناعي حولك في كل مكان</h2>
+      <p style="color:#cbd5e1">ربما تستخدمه عشرات المرات يومياً دون أن تشعر!</p>
+    </div>
+    <div class="apps-grid">
+      <div class="app"><i>🏥</i><b>الطب</b><small>تشخيص السرطان بدقة 95%</small></div>
+      <div class="app"><i>🎓</i><b>التعليم</b><small>معلم شخصي لكل طالب</small></div>
+      <div class="app"><i>🚗</i><b>النقل</b><small>سيارات ذاتية القيادة</small></div>
+      <div class="app"><i>🎨</i><b>الإبداع</b><small>رسم وكتابة وموسيقى</small></div>
+      <div class="app"><i>🏦</i><b>البنوك</b><small>كشف الاحتيال لحظياً</small></div>
+      <div class="app"><i>🌾</i><b>الزراعة</b><small>ري ذكي وتوقع المحاصيل</small></div>
+      <div class="app"><i>🛒</i><b>التسوق</b><small>ترشيحات تناسب ذوقك</small></div>
+      <div class="app"><i>🌙</i><b>اللغة العربية</b><small>ترجمة وتشكيل وفهم دقيق</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- المستقبل -->
+<section class="block">
+  <div class="sec-head">
+    <span class="sec-tag">🔮 سادساً : مستقبل الذكاء الاصطناعي</span>
+    <h2>إلى أين <span>يتجه</span> العالم؟</h2>
+  </div>
+  <div class="future-grid">
+    <div style="position:relative;border-radius:28px;overflow:hidden;background:linear-gradient(135deg,#1e1b4b,#0f766e);min-height:420px;box-shadow:0 20px 60px rgba(139,92,246,.25)">
+    <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=900&auto=format&fit=crop" alt="روبوت المستقبل" style="width:100%;height:420px;object-fit:cover;display:block" referrerpolicy="no-referrer" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=900&auto=format&fit=crop';">
+    </div>
+    <div>
+      <div class="check"><i class="fa-solid fa-check"></i><div><b>🤝 شريك الإنسان لا بديله</b><br><small style="color:var(--muted)">سيصبح مساعداً شخصياً لكل طبيب ومعلم ومهندس، يضاعف الإنتاجية ولا يلغي الإبداع البشري.</small></div></div>
+      <div class="check"><i class="fa-solid fa-check"></i><div><b>⚖️ الأخلاقيات والقوانين</b><br><small style="color:var(--muted)">يتجه العالم لوضع قوانين صارمة للخصوصية ومنع التحيز وضمان استخدام آمن وعادل للذكاء الاصطناعي.</small></div></div>
+      <div class="check"><i class="fa-solid fa-check"></i><div><b>🌟 فرص للعالم العربي</b><br><small style="color:var(--muted)">نماذج لغوية عربية قوية، ومدن ذكية، واقتصاد رقمي جديد — والمستقبل لمن يتعلم أدوات الذكاء اليوم.</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- بانر الزوار -->
+<section class="block" style="padding-top:10px">
+  <div class="visitors-banner">
+    <h2>📊 اكتشف من يزور موسوعتنا من حول العالم 🌍</h2>
+    <p>عداد حي لعدد الزوار حسب الدولة — سجّل زيارتك وشاهد ترتيب بلدك لحظة بلحظة</p>
+    <div style="position:relative;z-index:2;margin-bottom:22px"><b id="liveTotal" style="font-size:2.2rem">…</b><span style="opacity:.9"> زائر حتى الآن 👥</span></div>
+    <a href="visitors.html" class="btn btn-white">👁️ عرض سجل الزوار المباشر</a>
+  </div>
+</section>
+</div>
+
+<footer>
+  <div class="f-grid">
+    <div style="display:flex;gap:12px;align-items:center"><div class="logo-icon">🤖</div><div><b style="color:#fff">موسوعة الذكاء الاصطناعي</b><br><small>صُنع بشغف لتبسيط المعرفة 💜</small></div></div>
+    <div>📚 التعريف • 🌱 النشأة • 🕰️ التطور • 🌍 التطبيقات • 🔮 المستقبل • 📊 <a href="visitors.html" style="color:#fde68a">سجل الزوار</a> • ✉️ <a href="contact.html" style="color:#fde68a">اتصل بنا</a></div>
+  </div>
+  <hr>
+  <div class="copy">© 2026 موسوعة الذكاء الاصطناعي — جميع الحقوق محفوظة | ABDULAZIZ ALROBAI</div>
+</footer>
+
+<button class="top-btn" id="topBtn" title="العودة للأعلى">↑</button>
+<script>
+const btn=document.getElementById('topBtn');
+window.onscroll=()=>{btn.style.display=window.scrollY>500?'block':'none'};
+btn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+// العداد العالمي الحقيقي — عرض إجمالي الزوار في البانر
+fetch('https://abacus.jasoncameron.dev/get/abdulaziz-alrobai-ai-2026/total').then(r=>r.json()).then(j=>{
+  if(typeof j.value==='number') document.getElementById('liveTotal').textContent=j.value.toLocaleString('ar');
+}).catch(()=>{document.getElementById('liveTotal').textContent='—';});
+</script>
+<script>
+// قائمة الجوال (همبرغر)
+const menuBtn=document.getElementById('menuBtn'),mobileMenu=document.getElementById('mobileMenu');
+if(menuBtn&&mobileMenu){
+menuBtn.addEventListener('click',e=>{e.stopPropagation();const o=mobileMenu.classList.toggle('open');menuBtn.textContent=o?'✕':'☰';});
+document.addEventListener('click',e=>{if(!mobileMenu.contains(e.target)){mobileMenu.classList.remove('open');menuBtn.textContent='☰';}});
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileMenu.classList.remove('open');menuBtn.textContent='☰';}));
+}
+</script>
+</body>
+</html>
