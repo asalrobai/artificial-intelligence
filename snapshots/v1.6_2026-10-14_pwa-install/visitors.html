@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0f172a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ذكاء اصطناعي">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>سجل الزوار | موسوعة الذكاء الاصطناعي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0f172a;--teal:#14b8a6;--teal-light:#5eead4;--violet:#8b5cf6;--gold:#fbbf24;--bg:#f8fafc;--text:#1e293b;--muted:#64748b}
+html{scroll-behavior:smooth}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);line-height:2;overflow-x:hidden}
+.hero-bg{background:radial-gradient(800px 400px at 85% 10%, rgba(139,92,246,.35), transparent 60%),radial-gradient(700px 400px at 10% 20%, rgba(20,184,166,.35), transparent 60%),linear-gradient(135deg,#0f172a 0%,#1e1b4b 40%,#134e4a 100%);color:#fff;position:relative;overflow:hidden}
+.hero-bg::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1.5px, transparent 1.5px);background-size:32px 32px;mask-image:radial-gradient(ellipse 90% 80% at 50% 20%, black 30%, transparent 75%);pointer-events:none}
+nav{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:22px 24px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:900;font-size:1.4rem;color:#fff;text-decoration:none}
+.logo-icon{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--teal),var(--violet));box-shadow:0 8px 25px rgba(20,184,166,.4);font-size:1.4rem}
+.logo small{display:block;font-size:.75rem;font-weight:400;color:#cbd5e1;line-height:1.2}
+.nav-links{display:flex;gap:6px;background:rgba(255,255,255,.1);padding:6px;border-radius:100px;border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(12px)}
+.nav-links a{color:#e2e8f0;text-decoration:none;padding:8px 18px;border-radius:100px;font-weight:600;font-size:.95rem;transition:.3s}
+.nav-links a:hover{background:rgba(255,255,255,.2);color:#fff}
+.nav-links a.active{background:#fff;color:var(--navy)}
+.nav-links a.nav-live{background:linear-gradient(90deg,#f59e0b,#ef4444);color:#fff;font-weight:800;box-shadow:0 6px 20px rgba(245,158,11,.5)}
+@media(max-width:920px){.nav-links{display:none}.menu-btn{display:block}}
+.menu-btn{display:none;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:1.4rem;width:48px;height:48px;border-radius:14px;cursor:pointer;font-family:inherit;flex-shrink:0}
+.mobile-menu{display:none;position:absolute;top:calc(100% + 8px);right:16px;left:16px;background:rgba(15,23,42,.97);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:12px;z-index:50;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.mobile-menu a{display:block;color:#e2e8f0;text-decoration:none;padding:12px 18px;border-radius:14px;font-weight:700}
+.mobile-menu a:hover{background:rgba(255,255,255,.12)}
+.mobile-menu a.nav-live{background:linear-gradient(90deg,#f59e0b,#ef4444);color:#fff;margin-top:6px;text-align:center}
+.mobile-menu.open{display:block}
+@media(max-width:600px){
+  nav{padding:14px 16px}
+  .logo{font-size:1.1rem}
+  .hero{padding:24px 18px 70px}
+  .hero h1{font-size:1.85rem}
+  .hero p{font-size:1rem}
+  .container{padding:0 16px}
+  .stat-grid{margin-top:-40px;gap:12px}
+  .stat-card{padding:18px 10px}
+  .stat-card b{font-size:1.45rem}
+  .panel{padding:24px 16px}
+  .c-row{gap:8px;padding:12px 2px}
+  .c-flag{width:36px;font-size:1.5rem}
+  .c-num{min-width:0;font-size:.82rem}
+  .c-pct{min-width:38px;font-size:.75rem}
+  .you-box{padding:14px}
+  footer{padding:36px 0 20px}
+  .f-grid{justify-content:center;text-align:center}
+}
+.hero{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:40px 24px 80px;text-align:center}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(251,191,36,.15);border:1px solid rgba(251,191,36,.45);color:#fde68a;padding:8px 20px;border-radius:100px;font-size:.9rem;font-weight:700}
+.hero h1{font-size:2.8rem;font-weight:900;margin:18px 0 8px}
+.hero h1 .grad{background:linear-gradient(90deg,#5eead4,#c4b5fd,#fde68a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:#cbd5e1;max-width:640px;margin:0 auto}
+.live-dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.7);animation:pulse 1.6s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+.wave{display:block;width:100%;height:60px;margin-bottom:-1px}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:-50px 0 30px;position:relative;z-index:5}
+@media(max-width:900px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.stat-grid{grid-template-columns:1fr}}
+.stat-card{background:#fff;border:1px solid #e2e8f0;border-radius:22px;padding:26px 20px;text-align:center;box-shadow:0 14px 40px rgba(15,23,42,.1)}
+.stat-card .ic{width:56px;height:56px;margin:0 auto 10px;border-radius:18px;display:grid;place-items:center;color:#fff;font-size:1.5rem}
+.stat-card b{font-size:2rem;display:block;line-height:1.2}
+.stat-card span{color:var(--muted);font-size:.92rem}
+.panel{background:#fff;border:1px solid #e2e8f0;border-radius:26px;padding:34px;margin-bottom:26px;box-shadow:0 10px 35px rgba(15,23,42,.06)}
+.panel h2{font-size:1.4rem;margin-bottom:6px}
+.panel p.sub{color:var(--muted);margin-bottom:20px;font-size:.98rem}
+.you-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:700px){.you-grid{grid-template-columns:1fr}}
+.you-box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:16px 18px}
+.you-box small{color:var(--muted);display:block;font-size:.85rem}
+.you-box b{font-size:1.1rem}
+.c-row{display:flex;align-items:center;gap:14px;padding:14px 6px;border-bottom:1px solid #f1f5f9}
+.c-row:last-child{border-bottom:none}
+.c-flag{font-size:2rem;width:52px;text-align:center}
+.c-name{flex:1}
+.c-name b{display:block;line-height:1.4}
+.bar{height:10px;background:#f1f5f9;border-radius:100px;overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;border-radius:100px;background:linear-gradient(90deg,#14b8a6,#8b5cf6);transition:width 1s}
+.c-num{font-weight:900;min-width:70px;text-align:left}
+.c-pct{color:var(--muted);font-size:.85rem;min-width:52px;text-align:left}
+.note{background:linear-gradient(135deg,#f0fdfa,#ede9fe);border-right:5px solid var(--teal);border-radius:16px;padding:16px 20px;color:#334155;font-size:.95rem;margin-bottom:26px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 30px;border-radius:100px;font-weight:800;font-family:inherit;font-size:1rem;text-decoration:none;transition:.3s;border:none;cursor:pointer}
+.btn-home{background:linear-gradient(90deg,#14b8a6,#8b5cf6);color:#fff;box-shadow:0 12px 30px rgba(139,92,246,.4)}
+.btn-home:hover{transform:translateY(-3px)}
+.btn-reset{background:#fee2e2;color:#b91c1c;border:1px solid #fecaca}
+.center{text-align:center;margin:10px 0 60px}
+footer{background:#0f172a;color:#cbd5e1;padding:50px 0 25px;margin-top:40px}
+.f-grid{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:25px auto;max-width:1200px}
+.copy{text-align:center;font-size:.9rem;color:#94a3b8}
+</style>
+</head>
+<body>
+<div class="hero-bg">
+  <nav>
+    <a class="logo" href="index.html"><div class="logo-icon">🤖</div><div>ذكاء اصطناعي<small>من الفكرة إلى المستقبل</small></div></a>
+    <div class="nav-links">
+      <a href="index.html">🏠 الرئيسية</a>
+      <a href="index.html#def">التعريف</a>
+      <a href="index.html#timeline">مراحل التطور</a>
+      <a href="visitors.html" class="nav-live">📊 سجل الزوار</a>
+      <a href="contact.html">✉️ اتصل بنا</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">☰</button>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">🏠 الرئيسية</a>
+      <a href="index.html#def">📖 التعريف</a>
+      <a href="index.html#timeline">🕰️ مراحل التطور</a>
+      <a href="visitors.html" class="nav-live">📊 سجل الزوار</a>
+      <a href="contact.html">✉️ اتصل بنا</a>
+    </div>
+  </nav>
+  <div class="hero">
+    <span class="badge"><span class="live-dot"></span> بث مباشر — صفحة سجل الزوار</span>
+    <h1>من يزور <span class="grad">موقعنا؟ 🌍</span></h1>
+    <p>إحصائيات حية لعدد زوار الموسوعة حسب الدولة — تُسجَّل زيارتك تلقائياً وتُضاف لعداد بلدك لحظة بلحظة.</p>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,40 C360,90 1080,0 1440,50 L1440,70 L0,70 Z" fill="#f8fafc"/></svg>
+</div>
+
+<div class="container">
+  <div class="stat-grid">
+    <div class="stat-card"><div class="ic" style="background:linear-gradient(135deg,#14b8a6,#0d9488)">👥</div><b id="totalVisits">…</b><span>إجمالي الزيارات</span></div>
+    <div class="stat-card"><div class="ic" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)">📅</div><b id="todayVisits">…</b><span>زيارات اليوم</span></div>
+    <div class="stat-card"><div class="ic" style="background:linear-gradient(135deg,#f59e0b,#d97706)">🌍</div><b id="countriesCount">…</b><span>عدد الدول</span></div>
+    <div class="stat-card"><div class="ic" style="background:linear-gradient(135deg,#ef4444,#b91c1c)">✨</div><b id="myVisits">…</b><span>عدد زياراتك أنت</span></div>
+  </div>
+
+  <div class="panel">
+    <h2>📍 بيانات زيارتك الحالية</h2>
+    <p class="sub" id="detectStatus">جارٍ تحديد دولتك تلقائياً…</p>
+    <div class="you-grid">
+      <div class="you-box"><small>الدولة 🌍</small><b id="myCountry">…</b></div>
+      <div class="you-box"><small>المدينة 🏙️</small><b id="myCity">…</b></div>
+      <div class="you-box"><small>وقت الزيارة ⏰</small><b id="myTime">…</b></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>🏆 ترتيب الدول حسب عدد الزيارات</h2>
+    <p class="sub" id="globalStatus">🌐 متصل بالعداد العالمي — الأرقام حقيقية وموحدة لجميع الزوار.</p>
+    <div id="countriesList"></div>
+  </div>
+
+  <div class="note">💡 <b>كيف يعمل العداد العالمي؟</b> كل زيارة تُسجَّل لحظياً في عداد سحابي موحد <b>(Abacus)</b> يشترك فيه جميع زوار الموقع حول العالم — الإجمالي، وزيارات اليوم، وعداد كل دولة. تُحتسب <b>زيارة واحدة لكل جلسة تصفح</b>، وتتحدث الأرقام تلقائياً كل دقيقة. زياراتك الشخصية تُحفظ على جهازك فقط.</div>
+
+  <div class="center">
+    <a href="index.html" class="btn btn-home">🏠 العودة للصفحة الرئيسية</a>
+    &nbsp;
+    <button class="btn btn-home" onclick="loadStats(false)" style="background:linear-gradient(90deg,#0d9488,#0891b2)">🔄 تحديث الأرقام الآن</button>
+  </div>
+</div>
+
+<footer>
+  <div class="f-grid">
+    <div style="display:flex;gap:12px;align-items:center"><div class="logo-icon">🤖</div><div><b style="color:#fff">موسوعة الذكاء الاصطناعي</b><br><small>صُنع بشغف لتبسيط المعرفة 💜</small></div></div>
+    <div>📚 التعريف • 🌱 النشأة • 🕰️ التطور • 📊 <a href="visitors.html" style="color:#fde68a">سجل الزوار</a> • ✉️ <a href="contact.html" style="color:#fde68a">اتصل بنا</a></div>
+  </div>
+  <hr>
+  <div class="copy">© 2026 موسوعة الذكاء الاصطناعي — جميع الحقوق محفوظة | ABDULAZIZ ALROBAI</div>
+</footer>
+
+<script>
+// ===== العداد العالمي الحقيقي الموحد (Abacus — مجاني، يعمل من المتصفح مباشرة) =====
+const NS = 'abdulaziz-alrobai-ai-2026';
+const API = 'https://abacus.jasoncameron.dev';
+const AR_LIST = [["SA","السعودية"],["EG","مصر"],["AE","الإمارات"],["MA","المغرب"],["DZ","الجزائر"],["IQ","العراق"],["JO","الأردن"],["KW","الكويت"],["QA","قطر"],["YE","اليمن"],["OM","عُمان"],["TN","تونس"],["PS","فلسطين"],["SY","سوريا"],["LB","لبنان"],["SD","السودان"],["LY","ليبيا"],["BH","البحرين"],["MR","موريتانيا"]];
+const AR_BY_CODE = Object.fromEntries(AR_LIST);
+const todayStr = new Date().toISOString().slice(0,10);
+const TODAY_KEY = 'd_' + todayStr;
+let myCode = 'XX', myName = 'غير معروف', globalOK = false;
+
+function flagEmoji(cc){ if(!cc||cc.length!==2||cc==='XX') return '🌐'; try{ return String.fromCodePoint(...[...cc.toUpperCase()].map(c=>127397+c.charCodeAt())); }catch(e){ return '🌐'; } }
+async function apiHit(key){ const r = await fetch(`${API}/hit/${NS}/${encodeURIComponent(key)}`); if(!r.ok) throw new Error('hit '+r.status); const j = await r.json(); return j.value; }
+async function apiGet(key){ try{ const r = await fetch(`${API}/get/${NS}/${encodeURIComponent(key)}`); if(!r.ok) return 0; const j = await r.json(); return typeof j.value==='number' ? j.value : 0; }catch(e){ return null; } }
+
+async function detect(){
+  let city = '—', code = 'XX', enName = '';
+  try{
+    const ctl = new AbortController(); const t = setTimeout(()=>ctl.abort(), 6000);
+    const r = await fetch('https://ipapi.co/json/', {signal:ctl.signal});
+    clearTimeout(t);
+    if(r.ok){ const j = await r.json(); if(j.country_code){ code = (j.country_code||'XX').toUpperCase(); enName = j.country_name||''; city = j.city||'—'; } }
+  }catch(e){
+    try{ const r2 = await fetch('https://ipwho.is/'); if(r2.ok){ const j2 = await r2.json(); if(j2.success!==false && j2.country_code){ code = (j2.country_code||'XX').toUpperCase(); enName = j2.country||''; city = j2.city||'—'; } } }catch(e2){}
+  }
+  myCode = /^[A-Z]{2}$/.test(code) ? code : 'XX';
+  myName = AR_BY_CODE[myCode] || enName || 'غير معروف';
+  document.getElementById('myCountry').textContent = flagEmoji(myCode) + ' ' + myName;
+  document.getElementById('myCity').textContent = city;
+  document.getElementById('detectStatus').textContent = myCode==='XX'
+    ? 'تعذّر التحديد التلقائي — سُجّلت زيارتك ضمن "غير معروف".'
+    : 'تم تحديد موقعك بنجاح وسُجّلت زيارتك ضمن دولة: ' + myName;
+}
+
+async function countVisit(){
+  // زيارة واحدة لكل جلسة تصفح حتى لا يتضخم العداد بالتحديث المتكرر
+  if(sessionStorage.getItem('counted_' + todayStr)) return;
+  await Promise.allSettled([apiHit('total'), apiHit(TODAY_KEY), apiHit('c_' + myCode)]);
+  sessionStorage.setItem('counted_' + todayStr, '1');
+}
+
+async function loadStats(withCount){
+  document.getElementById('myTime').textContent = new Date().toLocaleString('ar');
+  try{
+    await detect();
+    if(withCount) await countVisit();
+    const codes = [...new Set([...AR_LIST.map(c=>c[0]), myCode])];
+    const results = await Promise.all([apiGet('total'), apiGet(TODAY_KEY), ...codes.map(c=>apiGet('c_'+c))]);
+    if(results.some(v=>v===null)) throw new Error('network');
+    const total = results[0], today = results[1];
+    const countries = {};
+    codes.forEach((c,i)=>{ if(results[i+2] > 0) countries[c] = results[i+2]; });
+    globalOK = true;
+    // حفظ نسخة احتياطية محلية للعرض عند انقطاع النت لاحقاً
+    try{ localStorage.setItem('ai_global_cache', JSON.stringify({total, today, countries, at: Date.now()})); }catch(e){}
+    render(total, today, countries, true);
+  }catch(e){
+    globalOK = false;
+    let cached = null;
+    try{ cached = JSON.parse(localStorage.getItem('ai_global_cache')||'null'); }catch(e2){}
+    if(cached){ render(cached.total, cached.today, cached.countries, false); }
+    else { render(0, 0, {}, false); }
+  }
+  // زياراتك الشخصية (على جهازك فقط)
+  try{
+    const mine = (parseInt(localStorage.getItem('ai_my_visits'))||0) + (withCount ? 1 : 0);
+    localStorage.setItem('ai_my_visits', mine);
+    document.getElementById('myVisits').textContent = mine.toLocaleString('ar');
+  }catch(e){ document.getElementById('myVisits').textContent = '—'; }
+}
+
+function render(total, today, countries, live){
+  document.getElementById('totalVisits').textContent = total.toLocaleString('ar');
+  document.getElementById('todayVisits').textContent = today.toLocaleString('ar');
+  const entries = Object.entries(countries).sort((a,b)=>b[1]-a[1]);
+  document.getElementById('countriesCount').textContent = entries.length.toLocaleString('ar');
+  document.getElementById('globalStatus').textContent = live
+    ? '🌐 متصل بالعداد العالمي — الأرقام حقيقية وموحدة لجميع الزوار. (آخر تحديث: ' + new Date().toLocaleTimeString('ar') + ')'
+    : '⚠️ تعذّر الاتصال بالعداد العالمي — تُعرض آخر أرقام محفوظة. تحقق من الإنترنت ثم حدّث الصفحة.';
+  const max = entries.length ? entries[0][1] : 1;
+  document.getElementById('countriesList').innerHTML = entries.length ? entries.map(([code,val])=>{
+    const name = AR_BY_CODE[code] || code;
+    const pct = total ? Math.round(val/total*100) : 0;
+    return `<div class="c-row"><div class="c-flag">${flagEmoji(code)}</div><div class="c-name"><b>${name}</b><div class="bar"><i style="width:${Math.max(4,Math.round(val/max*100))}%"></i></div></div><div class="c-num">${val.toLocaleString('ar')} 👁️</div><div class="c-pct">${pct}%</div></div>`;
+  }).join('') : '<p style="color:var(--muted);text-align:center;padding:20px">لا توجد زيارات مسجلة بعد — كن أول زائر! 🚀</p>';
+}
+
+loadStats(true);
+setInterval(()=>loadStats(false), 60000); // تحديث تلقائي كل دقيقة (قراءة فقط دون احتساب زيارة)
+</script>
+<script>
+// قائمة الجوال (همبرغر)
+const menuBtn=document.getElementById('menuBtn'),mobileMenu=document.getElementById('mobileMenu');
+if(menuBtn&&mobileMenu){
+menuBtn.addEventListener('click',e=>{e.stopPropagation();const o=mobileMenu.classList.toggle('open');menuBtn.textContent=o?'✕':'☰';});
+document.addEventListener('click',e=>{if(!mobileMenu.contains(e.target)){mobileMenu.classList.remove('open');menuBtn.textContent='☰';}});
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileMenu.classList.remove('open');menuBtn.textContent='☰';}));
+}
+</script>
+</body>
+</html>

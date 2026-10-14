@@ -14,6 +14,7 @@ https://github.com/asalrobai/artificial-intelligence/releases
 | `v1.3` | 2026-10-14 | 🚀 الرفع على GitHub وتفعيل Pages + README |
 | `v1.4` | 2026-10-14 | ✉️ صفحة اتصل بنا المستقلة: بطاقة ABDULAZIZ ALROBAI + البريد ASALROBAI@HOTMAIL.COM (زر إرسال ونسخ) + نموذج مراسلة + رابط GitHub، وتبويبها في نافبار الرئيسية والزوار والتذييل |
 | `v1.5` | 2026-10-14 | 📱 توافق الجوال: قائمة همبرغر منسدلة في الصفحات الثلاث + تصغير العناوين والحشوات + أزرار بعرض كامل + ضغط صفوف الدول + منع تجاوز البريد لحدود الشاشة |
+| `v1.6` | 2026-10-14 | 📲 تطبيق قابل للتثبيت (بدون Service Worker وبدون عمل دون اتصال): ملف `manifest.webmanifest` (الاسم، المختصر، البدء، standalone، ألوان السمة/الخلفية، أيقونات 192 و512 وmaskable وأندرويد و180) + وسوم التثبيت في رأس الصفحات الثلاث فقط |
 
 ### طريقة الرجوع لنسخة سليمة (من GitHub)
 1. من صفحة Releases حمّل ملفات النسخة المطلوبة واستبدلها، أو:
@@ -38,6 +39,7 @@ git checkout v1.2 -- index.html visitors.html   # استرجاع ملفات نس
 | `v1.3_2026-10-14_github-deploy` | 2026-10-14 | 🚀 الرفع على GitHub + Pages | إضافة `README.md` و`.gitignore`، وإنشاء مستودع عام `asalrobai/artificial-intelligence` ورفع المشروع + تفعيل GitHub Pages (فرع main). الموقع الحي: https://asalrobai.github.io/artificial-intelligence/ |
 | `v1.4_2026-10-14_contact-page` | 2026-10-14 | ✉️ صفحة اتصل بنا | إنشاء `contact.html` بنفس الهوية: بطاقة الاسم ABDULAZIZ ALROBAI + البريد ASALROBAI@HOTMAIL.COM مع زر إرسال/نسخ + نموذج مراسلة يفتح البريد + رابط GitHub. ربطها في نافبار `index.html` و`visitors.html` والتذييل. |
 | `v1.5_2026-10-14_mobile` | 2026-10-14 | 📱 توافق الجوال | قائمة همبرغر (زر ☰ + قائمة منسدلة + إغلاق تلقائي) في `index.html` و`visitors.html` و`contact.html`، وتوحيد نقطة الإخفاء عند 920px، وتحسينات شاشات ≤600px: عناوين أصغر، أزرار بعرض كامل، بطاقات وإحصائيات مضغوطة، صفوف دول مدمجة، التفاف البريد الطويل. |
+| `v1.6_2026-10-14_pwa-install` | 2026-10-14 | 📲 تثبيت كتطبيق | ملفات جديدة: `manifest.webmanifest` + 6 أيقونات PNG (192/512 عامة، 192/512 أندرويد، maskable-512، apple-180). تعديل رأسي فقط في الصفحات الثلاث (manifest + theme-color + وسوم آبل). لا Service Worker ولا تخزين دون اتصال. |
 
 ## طريقة الاسترجاع
 1. يدوياً: انسخ `snapshots/<اسم-النسخة>/index.html` إلى `index.html` الرئيسي.
